@@ -3,8 +3,14 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      height: {
+        header: "var(--header-height)",
+      },
       maxWidth: {
-        layout: "1024px",
+        layout: "var(--layout-max)",
+      },
+      spacing: {
+        header: "var(--header-height)",
       },
     },
   },
