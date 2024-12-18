@@ -1,5 +1,11 @@
+import ClipPath from "@/components/clip-path";
+
 interface HomeProps {}
 
 export default function Home({}: HomeProps) {
-  return <div>Home</div>;
+  return (
+    <article>
+      <ClipPath />
+    </article>
+  );
 }
