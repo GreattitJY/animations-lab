@@ -7,15 +7,20 @@ export default function ClipPath() {
   return (
     <div className="relative">
       <section
-        className={`p-4 rounded-lg border space-y-2.5 bg-white w-fit absolute top-0 
+        className={`p-6 rounded-lg border space-y-2.5 bg-white w-[700px] absolute top-0 
             ${isLight && "reveal z-10"}
           `}
       >
         <h2>Experience the theme switch animation yourself.</h2>
         <p className="flex flex-col">
-          <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, asperiores?</span>
-          <span>Lorem ipsum dolor, sit amet consectetur adipisicing.</span>
-          <span>Lorem, ipsum dolor.</span>
+          <span>
+            This technique is using clip-path, this element is duplicated and overlayed on top of
+            the
+          </span>
+          <span>
+            original one. The duplicated elements have different themes and we just reveal the one
+          </span>
+          <span>underneath by animating the clip-path property.</span>
         </p>
         <button
           type="button"
@@ -26,15 +31,20 @@ export default function ClipPath() {
         </button>
       </section>
       <section
-        className={`p-4 rounded-lg border space-y-2.5 w-fit absolute top-0 bg-black text-white
+        className={`p-6 rounded-lg border space-y-2.5 w-[700px] absolute top-0 bg-black text-white
           ${!isLight && "reveal z-10"}
           `}
       >
         <h2>Experience the theme switch animation yourself.</h2>
         <p className="flex flex-col">
-          <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, asperiores?</span>
-          <span>Lorem ipsum dolor, sit amet consectetur adipisicing.</span>
-          <span>Lorem, ipsum dolor.</span>
+          <span>
+            This technique is using clip-path, this element is duplicated and overlayed on top of
+            the
+          </span>
+          <span>
+            original one. The duplicated elements have different themes and we just reveal the one
+          </span>
+          <span>underneath by animating the clip-path property.</span>
         </p>
         <button
           type="button"
