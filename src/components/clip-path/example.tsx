@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import Badge from "../_common/badge";
 
 export default function Example() {
   const [isLight, setIsLight] = useState(true);
@@ -12,25 +13,25 @@ export default function Example() {
           `}
       >
         <h2>Experience the theme switch animation yourself.</h2>
-        <p className="flex flex-col">
-          <span>
+        <div className="flex flex-col">
+          <p>
             This technique is using{" "}
-            <strong className="bg-black rounded-md p-1 font-normal text-sm text-white">
-              clip-path
-            </strong>
+            <Badge asChild className="text-white bg-black">
+              <span>clip-path</span>
+            </Badge>
             , this element is duplicated and overlayed on top of the
-          </span>
-          <span>
+          </p>
+          <p>
             original one. The duplicated elements have different themes and we just reveal the one
-          </span>
-          <span>
+          </p>
+          <p>
             underneath by animating the{" "}
-            <strong className="bg-black rounded-md p-1 font-normal text-sm text-white">
-              clip-path
-            </strong>{" "}
+            <Badge asChild className="text-white bg-black">
+              <span>clip-path</span>
+            </Badge>{" "}
             property.
-          </span>
-        </p>
+          </p>
+        </div>
         <button
           type="button"
           className="bg-black text-white py-1 px-2.5 rounded"
@@ -45,25 +46,25 @@ export default function Example() {
           `}
       >
         <h2>Experience the theme switch animation yourself.</h2>
-        <p className="flex flex-col">
-          <span>
+        <div className="flex flex-col">
+          <p>
             This technique is using{" "}
-            <strong className="bg-neutral-800 rounded-md p-1 font-normal text-sm text-white">
-              clip-path
-            </strong>
+            <Badge asChild className="bg-neutral-800 text-white border-none">
+              <span>clip-path</span>
+            </Badge>
             , this element is duplicated and overlayed on top of the
-          </span>
-          <span>
+          </p>
+          <p>
             original one. The duplicated elements have different themes and we just reveal the one
-          </span>
-          <span>
+          </p>
+          <p>
             underneath by animating the{" "}
-            <strong className="bg-neutral-800 rounded-md p-1 font-normal text-sm text-white">
-              clip-path
-            </strong>{" "}
+            <Badge asChild className="bg-neutral-800 text-white border-none">
+              <span>clip-path</span>
+            </Badge>{" "}
             property.
-          </span>
-        </p>
+          </p>
+        </div>
         <button
           type="button"
           className="bg-white text-black py-1 px-2.5 rounded-md"
