@@ -6,7 +6,7 @@ export default function Example() {
   const [isLight, setIsLight] = useState(true);
 
   return (
-    <div className="relative h-[200px] w-[700px] my-10">
+    <div className="relative h-[200px] w-[700px]">
       <section
         className={`p-6 rounded-lg border space-y-2.5 bg-white w-[700px] absolute top-0 
             ${isLight && "reveal z-10"}

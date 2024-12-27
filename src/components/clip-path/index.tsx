@@ -5,8 +5,8 @@ import Badge from "../_common/badge";
 
 export default function ClipPath() {
   return (
-    <div className="flex flex-col gap-2.5">
-      <h2 className="text-2xl">Clip Path</h2>
+    <section className="flex flex-col gap-2.5">
+      <h2 className="text-title">Clip Path</h2>
       <p>Clip path를 활용한 애니메이션입니다.</p>
       <div className="ml-auto space-x-2.5">
         <Badge>css</Badge>
@@ -15,6 +15,6 @@ export default function ClipPath() {
       <Showcase>
         <Example />
       </Showcase>
-    </div>
+    </section>
   );
 }

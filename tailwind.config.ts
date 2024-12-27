@@ -1,3 +1,16 @@
+import plugin from "tailwindcss/plugin";
+
+const addComponents = plugin(({ addComponents }) => {
+  addComponents({
+    ".text-title": {
+      fontSize: "24px",
+      fontWeight: "400",
+      lineHeight: "29px",
+      letterSpacing: "-0.4px",
+    },
+  });
+});
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -39,5 +52,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [addComponents],
 };
