@@ -1,6 +1,7 @@
 import ClipPath from "@/components/clip-path";
 import GradientBorder from "@/components/gradient-border";
 import Popover from "@/components/popover";
+import MultiStep from "@/components/multi-step";
 
 interface HomeProps {}
 
@@ -10,6 +11,7 @@ export default function Home({}: HomeProps) {
       <ClipPath />
       <Popover />
       <GradientBorder />
+      <MultiStep />
     </article>
   );
 }
