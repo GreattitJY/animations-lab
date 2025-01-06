@@ -12,7 +12,10 @@
   margin-top: calc(max(100vw, 100vh) * -0.5);
   height: max(100vw, 100vh);
   width: max(100vw, 100vh);
-  animation: 3s linear 0s infinite normal none running border_effect;
+  animation-name: border_effect;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   background: conic-gradient(
     transparent 90deg,
     rgb(2, 156, 253) 150deg,
