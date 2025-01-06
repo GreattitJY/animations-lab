@@ -89,7 +89,7 @@ export default function MultiStepComponent() {
           </AnimatePresence>
           <motion.div layout className="mt-8 flex justify-between">
             <button
-              className="rounded-full border px-2 py-1 text-sm disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-full border px-4 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50"
               disabled={currentStep === 0}
               onClick={() => {
                 if (currentStep === 0) {
@@ -102,7 +102,7 @@ export default function MultiStepComponent() {
               Back
             </button>
             <button
-              className="rounded-full border bg-black text-white px-2 py-1 text-sm disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-full border bg-black text-white px-4 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50"
               disabled={currentStep === 2}
               onClick={() => {
                 if (currentStep === 2) {
