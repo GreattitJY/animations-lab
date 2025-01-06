@@ -1,0 +1,48 @@
+.border_effect {
+  border-radius: var(--radius);
+}
+
+.border_effect::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: calc(max(100vw, 100vh) * -0.5);
+  margin-top: calc(max(100vw, 100vh) * -0.5);
+  height: max(100vw, 100vh);
+  width: max(100vw, 100vh);
+  animation: 3s linear 0s infinite normal none running border_effect;
+  background: conic-gradient(
+    transparent 90deg,
+    rgb(2, 156, 253) 150deg,
+    rgb(55, 213, 211) 210deg,
+    transparent 270deg
+  );
+  opacity: 1;
+  will-change: auto;
+}
+
+@keyframes border_effect {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(170deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  60% {
+    transform: rotate(190deg);
+  }
+  90% {
+    transform: rotate(350deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

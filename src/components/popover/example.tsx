@@ -56,7 +56,7 @@ export default function Example({}: ExampleProps) {
     <div className="h-[250px] flex items-center justify-center">
       <motion.button
         layoutId="wrapper"
-        className="border flex items-center justify-center px-2 py-1 rounded-md relative"
+        className="border flex items-center justify-center px-2 py-1 rounded-md relative bg-white"
         onClick={handleOpen}
         key="button"
       >
