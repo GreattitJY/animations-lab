@@ -3,6 +3,7 @@ import GradientBorder from "@/components/gradient-border";
 import Popover from "@/components/popover";
 import MultiStep from "@/components/multi-step";
 import TextReveal from "@/components/text-reveal";
+import AnimationText from "@/components/animation-text";
 
 interface HomeProps {}
 
@@ -14,6 +15,7 @@ export default function Home({}: HomeProps) {
       <GradientBorder />
       <MultiStep />
       <TextReveal />
+      <AnimationText />
     </article>
   );
 }
