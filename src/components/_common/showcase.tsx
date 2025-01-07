@@ -19,7 +19,7 @@ export default function Showcase({ className, isReset = false, children }: Showc
     >
       {isReset && (
         <button
-          className="absolute top-2.5 right-2.5 hover:text-gray-600 active:-rotate-45 transition-all"
+          className="absolute top-2.5 right-2.5 hover:text-gray-600 transition-colors"
           type="button"
           onClick={() => setKey((prev) => prev + 1)}
         >
