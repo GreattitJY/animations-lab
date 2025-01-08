@@ -1,8 +1,13 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-export default function Counter({ isPaused }: { isPaused: boolean }) {
-  const [count, setCount] = useState(0);
+interface CounterProps {
+  isPaused: boolean;
+  initialCount?: number;
+}
+
+export default function Counter({ isPaused, initialCount = 0 }: CounterProps) {
+  const [count, setCount] = useState(initialCount);
   const lastTimeRef = useRef<number | null>(null);
 
   useEffect(() => {

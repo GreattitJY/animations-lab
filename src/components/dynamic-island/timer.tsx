@@ -2,13 +2,19 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import Counter from "./counter";
 
-interface TimerProps {}
+interface TimerProps {
+  setView: React.Dispatch<React.SetStateAction<string>>;
+}
 
-export default function Timer({}: TimerProps) {
+export default function Timer({ setView }: TimerProps) {
   const [isPaused, setIsPaused] = useState(false);
 
   const handlePuasedClick = () => {
     setIsPaused((prev) => !prev);
+  };
+
+  const handleExit = () => {
+    setView("idle");
   };
 
   return (
@@ -55,6 +61,7 @@ export default function Timer({}: TimerProps) {
         aria-label="Exit"
         whileTap={{ scale: 0.9 }}
         className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3C3D3C] text-white transition-colors hover:bg-[#4A4B4A]"
+        onClick={handleExit}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +76,7 @@ export default function Timer({}: TimerProps) {
       </motion.button>
       <div className="ml-auto flex items-baseline gap-1.5 pr-0.5 text-[#F7A815]">
         <p className="text-sm font-medium">Timer</p>
-        <Counter isPaused={isPaused} />
+        <Counter isPaused={isPaused} initialCount={60} />
       </div>
     </div>
   );

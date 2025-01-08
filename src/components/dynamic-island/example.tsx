@@ -10,7 +10,7 @@ export default function Example({}: ExampleProps) {
   const content = useMemo(() => {
     switch (view) {
       case "timer":
-        return <Timer />;
+        return <Timer setView={setView} />;
       case "coffee":
         return <p>coffee</p>;
       case "idle":
