@@ -5,6 +5,7 @@ import MultiStep from "@/components/multi-step";
 import TextReveal from "@/components/text-reveal";
 import AnimationText from "@/components/animation-text";
 import AnimationCounter from "@/components/animation-counter";
+import DynamicIsland from "@/components/dynamic-island";
 
 interface HomeProps {}
 
@@ -18,6 +19,7 @@ export default function Home({}: HomeProps) {
       <TextReveal />
       <AnimationText />
       <AnimationCounter />
+      <DynamicIsland />
     </article>
   );
 }
