@@ -4,6 +4,7 @@ import Popover from "@/components/popover";
 import MultiStep from "@/components/multi-step";
 import TextReveal from "@/components/text-reveal";
 import AnimationText from "@/components/animation-text";
+import AnimationCounter from "@/components/animation-counter";
 
 interface HomeProps {}
 
@@ -16,6 +17,7 @@ export default function Home({}: HomeProps) {
       <MultiStep />
       <TextReveal />
       <AnimationText />
+      <AnimationCounter />
     </article>
   );
 }
