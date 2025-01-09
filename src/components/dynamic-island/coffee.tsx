@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 const TOTAL_COUNT = 42;
 const ORANGE = "rgb(243, 100, 4)";
 const GRAY = "rgb(128, 128, 128)";
+const BASE_GRADIENT = `linear-gradient(to right, ${ORANGE}, ${ORANGE}, ${GRAY})`;
+
 const ITEM_WIDTH = 10;
 const GAP_WIDTH = 6;
 const STEP_WIDTH = ITEM_WIDTH + GAP_WIDTH;
@@ -40,7 +42,7 @@ const Coffee = () => {
   return (
     <div className="flex flex-col w-96 pt-5 pb-3 px-4 h-48">
       <div className="overflow-hidden">
-        <div className="translate-x-[-138%]">
+        <div className="translate-x-[-142%]">
           <motion.ul
             style={{ gap: GAP_WIDTH }}
             className="flex mt-3"
@@ -51,38 +53,41 @@ const Coffee = () => {
               x: `${step * STEP_WIDTH}px`,
             }}
             transition={{
-              ease: "linear",
+              type: "spring",
+              duration: 1,
+              bounce: 0,
             }}
           >
-            {[...Array(TOTAL_COUNT)].map((_, index) => (
-              <li key={index}>
-                <motion.span
-                  animate={{
-                    background:
-                      index === count
-                        ? `linear-gradient(to right, ${ORANGE}, ${ORANGE}, ${GRAY}) 100% / 800% 100%`
-                        : index > count
-                        ? GRAY
-                        : ORANGE,
-                    backgroundPosition: index === count ? ["0% center", "100% center"] : "center",
-                  }}
-                  transition={{
-                    duration: index === count ? 0.3 : 0,
-                    ease: "easeOut",
-                    backgroundPosition: {
-                      duration: 0.3,
-                      ease: "linear",
-                    },
-                  }}
-                  style={{ width: ITEM_WIDTH }}
-                  className="rounded-md h-10 inline-block"
-                />
-              </li>
-            ))}
+            {[...Array(TOTAL_COUNT)].map((_, index) => {
+              const isActive = index < count;
+
+              return (
+                <li key={index}>
+                  <motion.span
+                    initial={{
+                      backgroundImage: BASE_GRADIENT,
+                      backgroundPosition: "0%",
+                      backgroundSize: "800% 100%",
+                    }}
+                    animate={{
+                      backgroundPosition: isActive ? "0%" : "100%",
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      ease: [0.19, 1, 0.22, 1],
+                    }}
+                    style={{
+                      width: ITEM_WIDTH,
+                    }}
+                    className="rounded-md h-[36px] inline-block"
+                  />
+                </li>
+              );
+            })}
           </motion.ul>
         </div>
       </div>
-      <div className="mt-4">{count}</div>
+      <div className="mt-4"></div>
     </div>
   );
 };

@@ -23,7 +23,7 @@ export default function Counter({ isPaused, initialCount = 0 }: CounterProps) {
       if (timeOffset >= 1000) {
         setCount((count) => {
           if (count === 0) {
-            return 60;
+            return initialCount;
           }
           return count - 1;
         });
