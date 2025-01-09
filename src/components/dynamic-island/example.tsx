@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useMemo, useState } from "react";
 import Timer from "./timer";
+import Coffee from "./coffee";
 
 interface ExampleProps {}
 
@@ -12,7 +13,7 @@ export default function Example({}: ExampleProps) {
       case "timer":
         return <Timer setView={setView} />;
       case "coffee":
-        return <p>coffee</p>;
+        return <Coffee />;
       case "idle":
         return <div className="h-7" />;
     }
@@ -23,7 +24,7 @@ export default function Example({}: ExampleProps) {
   };
 
   return (
-    <section className="h-[200px]">
+    <section className="h-[270px]">
       <div className="w-full h-full flex flex-col justify-between">
         <motion.div
           layout
