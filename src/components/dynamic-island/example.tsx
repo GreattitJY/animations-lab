@@ -13,7 +13,7 @@ export default function Example({}: ExampleProps) {
       case "timer":
         return <Timer setView={setView} />;
       case "coffee":
-        return <Coffee />;
+        return <Coffee setView={setView} />;
       case "idle":
         return <div className="h-7" />;
     }

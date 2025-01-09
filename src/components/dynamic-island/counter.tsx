@@ -38,7 +38,7 @@ export default function Counter({ isPaused, initialCount = 0 }: CounterProps) {
     return () => {
       cancelAnimationFrame(rafId);
     };
-  }, [isPaused]);
+  }, [initialCount, isPaused]);
 
   const countArray = count.toString().padStart(2, "0").split("");
 

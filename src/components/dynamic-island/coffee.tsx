@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 const TOTAL_COUNT = 42;
 const ORANGE = "rgb(243, 100, 4)";
@@ -10,10 +10,18 @@ const ITEM_WIDTH = 10;
 const GAP_WIDTH = 6;
 const STEP_WIDTH = ITEM_WIDTH + GAP_WIDTH;
 
-const Coffee = () => {
+interface CoffeeProps {
+  setView: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function Coffee({ setView }: CoffeeProps) {
   const [step, setStep] = useState(0);
   const lastUpdateTime = useRef(0);
   const [count, setCount] = useState(TOTAL_COUNT);
+
+  const handleExit = () => {
+    setView("idle");
+  };
 
   useEffect(() => {
     const animate = (currentTime: number) => {
@@ -39,13 +47,15 @@ const Coffee = () => {
     };
   }, []);
 
+  const countArray = count.toString().padStart(2, "0").split("");
+
   return (
     <div className="flex flex-col w-96 pt-5 pb-3 px-4 h-48">
       <div className="overflow-hidden">
-        <div className="translate-x-[-142%]">
+        <div className="translate-x-[-138%]">
           <motion.ul
             style={{ gap: GAP_WIDTH }}
-            className="flex mt-3"
+            className="flex mt-10"
             initial={{ opacity: 0, filter: "blur(2px)" }}
             animate={{
               opacity: 1,
@@ -59,11 +69,26 @@ const Coffee = () => {
             }}
           >
             {[...Array(TOTAL_COUNT)].map((_, index) => {
-              const isActive = index < count;
-
+              const isActive = count > index;
               return (
-                <li key={index}>
-                  <motion.span
+                <li key={index} className="relative">
+                  {index % 10 === 0 && !!index && (
+                    <p
+                      style={{ color: isActive ? ORANGE : GRAY }}
+                      className="absolute -translate-y-7 -translate-x-1"
+                    >
+                      {index}
+                    </p>
+                  )}
+                  {index === 1 && (
+                    <p
+                      style={{ color: isActive ? ORANGE : GRAY }}
+                      className="absolute -translate-y-7 -translate-x-1"
+                    >
+                      {index}
+                    </p>
+                  )}
+                  <motion.div
                     initial={{
                       backgroundImage: BASE_GRADIENT,
                       backgroundPosition: "0%",
@@ -87,9 +112,36 @@ const Coffee = () => {
           </motion.ul>
         </div>
       </div>
-      <div className="mt-4"></div>
+      <div className="mt-4 flex justify-between items-center mx-4">
+        <p style={{ color: ORANGE }} className="text-5xl">
+          <AnimatePresence initial={false} mode="popLayout">
+            {countArray.map((digit, i) => (
+              <motion.span
+                key={digit + i}
+                className="tabular-nums"
+                initial={{ y: "8px", opacity: 0, filter: "blur(2px)" }}
+                animate={{ y: "0px", opacity: 1, filter: "blur(0px)" }}
+                exit={{ y: "-8px", opacity: 0, filter: "blur(2px)" }}
+                transition={{ type: "spring", bounce: 0.35 }}
+              >
+                {digit}
+              </motion.span>
+            ))}
+          </AnimatePresence>
+          <span>s</span>
+        </p>
+        <motion.button
+          type="button"
+          className="bg-orange-900/85 p-3.5 rounded-full"
+          whileTap={{ scale: 0.95 }}
+          onClick={handleExit}
+        >
+          <span style={{ backgroundColor: ORANGE }} className="rounded-md size-5 block"></span>
+        </motion.button>
+        <motion.p style={{ color: GRAY }} className="text-xl" animate={{}}>
+          Espresso
+        </motion.p>
+      </div>
     </div>
   );
-};
-
-export default Coffee;
+}
