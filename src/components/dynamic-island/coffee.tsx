@@ -50,71 +50,71 @@ export default function Coffee({ setView }: CoffeeProps) {
   const countArray = count.toString().padStart(2, "0").split("");
 
   return (
-    <div className="flex flex-col w-96 pt-5 pb-3 px-4 h-48">
-      <div className="overflow-hidden">
-        <div className="translate-x-[-138%]">
-          <motion.ul
-            style={{ gap: GAP_WIDTH }}
-            className="flex mt-10"
-            initial={{ opacity: 0, filter: "blur(2px)" }}
-            animate={{
-              opacity: 1,
-              filter: "blur(0px)",
-              x: `${step * STEP_WIDTH}px`,
-            }}
-            transition={{
-              type: "spring",
-              duration: 1,
-              bounce: 0,
-            }}
-          >
-            {[...Array(TOTAL_COUNT)].map((_, index) => {
-              const isActive = count > index;
-              return (
-                <li key={index} className="relative">
-                  {(index + 1) % 10 === 0 && (
-                    <motion.p
-                      key={count + "digit"}
-                      style={{ color: isActive ? ORANGE : GRAY }}
-                      className="absolute -translate-y-7 -translate-x-1"
-                      animate={{ opacity: [1, 0.9] }}
-                    >
-                      {index + 1}
-                    </motion.p>
-                  )}
-                  {index === 1 && (
-                    <motion.p
-                      key={count + "one"}
-                      style={{ color: isActive ? ORANGE : GRAY }}
-                      className="absolute -translate-y-7 -translate-x-1"
-                      animate={{ opacity: [1, 0.9] }}
-                    >
-                      {index}
-                    </motion.p>
-                  )}
-                  <motion.div
-                    initial={{
-                      backgroundImage: BASE_GRADIENT,
-                      backgroundPosition: "0%",
-                      backgroundSize: "800% 100%",
-                    }}
-                    animate={{
-                      backgroundPosition: isActive ? "0%" : "100%",
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      ease: [0.19, 1, 0.22, 1],
-                    }}
-                    style={{
-                      width: ITEM_WIDTH,
-                    }}
-                    className="rounded-md h-[36px] inline-block"
-                  />
-                </li>
-              );
-            })}
-          </motion.ul>
-        </div>
+    <div className="flex flex-col w-[410px] pt-5 pb-3 px-4 h-48">
+      <div className="relative overflow-hidden">
+        <motion.ul
+          style={{ gap: GAP_WIDTH }}
+          className="flex mt-10"
+          initial={{ opacity: 0, filter: "blur(2px)" }}
+          animate={{
+            opacity: 1,
+            filter: "blur(0px)",
+            x: `calc(${step * STEP_WIDTH}px - 125%)`,
+          }}
+          transition={{
+            type: "spring",
+            duration: 1,
+            bounce: 0,
+          }}
+        >
+          {[...Array(TOTAL_COUNT)].map((_, index) => {
+            const isActive = count > index;
+            return (
+              <li key={index} className="relative">
+                {(index + 1) % 10 === 0 && (
+                  <motion.p
+                    key={count + "digit"}
+                    style={{ color: isActive ? ORANGE : GRAY }}
+                    className="absolute -translate-y-7 -translate-x-1"
+                    animate={{ opacity: [1, 0.9] }}
+                  >
+                    {index + 1}
+                  </motion.p>
+                )}
+                {index === 1 && (
+                  <motion.p
+                    key={count + "one"}
+                    style={{ color: isActive ? ORANGE : GRAY }}
+                    className="absolute -translate-y-7 -translate-x-1"
+                    animate={{ opacity: [1, 0.9] }}
+                  >
+                    {index}
+                  </motion.p>
+                )}
+                <motion.div
+                  initial={{
+                    backgroundImage: BASE_GRADIENT,
+                    backgroundPosition: "0%",
+                    backgroundSize: "800% 100%",
+                  }}
+                  animate={{
+                    backgroundPosition: isActive ? "0%" : "100%",
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    ease: [0.19, 1, 0.22, 1],
+                  }}
+                  style={{
+                    width: ITEM_WIDTH,
+                  }}
+                  className="rounded-md h-[36px] inline-block"
+                />
+              </li>
+            );
+          })}
+        </motion.ul>
+        <div className="h-[120%] w-24 absolute bg-gradient-to-l from-transparent via-black/50 via-40% to-black rounded-tl-3xl -top-2 left-0" />
+        <div className="h-[120%] w-24 absolute bg-gradient-to-r from-transparent via-black/50 via-40% to-black rounded-tr-3xl -top-2 right-0" />
       </div>
       <div className="mt-4 flex justify-between items-center mx-4">
         <p style={{ color: ORANGE }} className="text-5xl">
@@ -123,9 +123,9 @@ export default function Coffee({ setView }: CoffeeProps) {
               <motion.span
                 key={digit + i}
                 className="tabular-nums"
-                initial={{ y: "8px", opacity: 0, filter: "blur(2px)" }}
+                initial={{ y: "10px", opacity: 0, filter: "blur(2px)" }}
                 animate={{ y: "0px", opacity: 1, filter: "blur(0px)" }}
-                exit={{ y: "-8px", opacity: 0, filter: "blur(2px)" }}
+                exit={{ y: "-10px", opacity: 0, filter: "blur(2px)" }}
                 transition={{ type: "spring", bounce: 0.35 }}
               >
                 {digit}
