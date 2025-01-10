@@ -43,7 +43,7 @@ export default function Counter({ isPaused, initialCount = 0 }: CounterProps) {
   const countArray = count.toString().padStart(2, "0").split("");
 
   return (
-    <div className="relatevie w-[64px]  whitespace-nowrap text-3xl font-light">
+    <div className="relatevie w-[64px] whitespace-nowrap text-3xl font-light">
       0:
       <AnimatePresence initial={false} mode="popLayout">
         {countArray.map((n, i) => (

@@ -72,21 +72,25 @@ export default function Coffee({ setView }: CoffeeProps) {
               const isActive = count > index;
               return (
                 <li key={index} className="relative">
-                  {index % 10 === 0 && !!index && (
-                    <p
+                  {(index + 1) % 10 === 0 && (
+                    <motion.p
+                      key={count + "digit"}
                       style={{ color: isActive ? ORANGE : GRAY }}
                       className="absolute -translate-y-7 -translate-x-1"
+                      animate={{ opacity: [1, 0.9] }}
                     >
-                      {index}
-                    </p>
+                      {index + 1}
+                    </motion.p>
                   )}
                   {index === 1 && (
-                    <p
+                    <motion.p
+                      key={count + "one"}
                       style={{ color: isActive ? ORANGE : GRAY }}
                       className="absolute -translate-y-7 -translate-x-1"
+                      animate={{ opacity: [1, 0.9] }}
                     >
                       {index}
-                    </p>
+                    </motion.p>
                   )}
                   <motion.div
                     initial={{
@@ -138,7 +142,12 @@ export default function Coffee({ setView }: CoffeeProps) {
         >
           <span style={{ backgroundColor: ORANGE }} className="rounded-md size-5 block"></span>
         </motion.button>
-        <motion.p style={{ color: GRAY }} className="text-xl" animate={{}}>
+        <motion.p
+          key={count}
+          style={{ color: GRAY }}
+          className="text-xl font-light"
+          animate={{ opacity: [1, 0.9] }}
+        >
           Espresso
         </motion.p>
       </div>
