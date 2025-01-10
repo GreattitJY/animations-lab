@@ -3,10 +3,10 @@ import { useState } from "react";
 import Counter from "./counter";
 
 interface TimerProps {
-  setView: React.Dispatch<React.SetStateAction<string>>;
+  handleViewClick: (view: string) => void;
 }
 
-export default function Timer({ setView }: TimerProps) {
+export default function Timer({ handleViewClick }: TimerProps) {
   const [isPaused, setIsPaused] = useState(false);
 
   const handlePuasedClick = () => {
@@ -14,7 +14,7 @@ export default function Timer({ setView }: TimerProps) {
   };
 
   const handleExit = () => {
-    setView("idle");
+    handleViewClick("idle");
   };
 
   return (

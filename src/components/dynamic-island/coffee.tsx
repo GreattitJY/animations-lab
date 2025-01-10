@@ -11,16 +11,16 @@ const GAP_WIDTH = 6;
 const STEP_WIDTH = ITEM_WIDTH + GAP_WIDTH;
 
 interface CoffeeProps {
-  setView: React.Dispatch<React.SetStateAction<string>>;
+  handleViewClick: (view: string) => void;
 }
 
-export default function Coffee({ setView }: CoffeeProps) {
+export default function Coffee({ handleViewClick }: CoffeeProps) {
   const [step, setStep] = useState(0);
   const lastUpdateTime = useRef(0);
   const [count, setCount] = useState(TOTAL_COUNT);
 
   const handleExit = () => {
-    setView("idle");
+    handleViewClick("idle");
   };
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function Coffee({ setView }: CoffeeProps) {
         <motion.ul
           style={{ gap: GAP_WIDTH }}
           className="flex mt-10"
-          initial={{ opacity: 0, filter: "blur(2px)" }}
+          initial={{ opacity: 0, filter: "blur(2px)", x: "-125%" }}
           animate={{
             opacity: 1,
             filter: "blur(0px)",
@@ -85,7 +85,7 @@ export default function Coffee({ setView }: CoffeeProps) {
                   <motion.p
                     key={count + "one"}
                     style={{ color: isActive ? ORANGE : GRAY }}
-                    className="absolute -translate-y-7 -translate-x-1"
+                    className="absolute -translate-y-7"
                     animate={{ opacity: [1, 0.9] }}
                   >
                     {index}
