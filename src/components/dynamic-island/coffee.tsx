@@ -50,8 +50,8 @@ export default function Coffee({ handleViewClick }: CoffeeProps) {
   const countArray = count.toString().padStart(2, "0").split("");
 
   return (
-    <div className="flex flex-col w-[410px] pt-5 pb-3 px-4 h-48">
-      <div className="relative overflow-hidden">
+    <div className="flex flex-col w-[410px] pt-5 pb-3 h-48">
+      <div className="relative px-4 overflow-hidden">
         <motion.ul
           style={{ gap: GAP_WIDTH }}
           className="flex mt-10"
