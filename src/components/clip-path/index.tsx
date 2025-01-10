@@ -7,9 +7,11 @@ export default function ClipPath() {
   return (
     <section className="flex flex-col gap-2.5">
       <h2 className="text-title">Clip Path</h2>
-      <p>Clip path를 활용한 애니메이션입니다.</p>
+      <p>
+        다크 테마가 화면을 위아래로 자연스럽게 채우는 애니메이션입니다. 버튼을 눌러 확인해보세요!
+      </p>
       <div className="ml-auto space-x-2.5">
-        <Badge>css</Badge>
+        <Badge>Module CSS</Badge>
         <Badge>key frames</Badge>
       </div>
       <Showcase>

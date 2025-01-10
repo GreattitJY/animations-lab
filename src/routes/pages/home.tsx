@@ -12,6 +12,7 @@ interface HomeProps {}
 export default function Home({}: HomeProps) {
   return (
     <article className="flex flex-col gap-10">
+      <DynamicIsland />
       <ClipPath />
       <Popover />
       <GradientBorder />
@@ -19,7 +20,6 @@ export default function Home({}: HomeProps) {
       <TextReveal />
       <AnimationText />
       <AnimationCounter />
-      <DynamicIsland />
     </article>
   );
 }
